@@ -1,18 +1,34 @@
-export default function Header() {
+export default function Header({ showBackground }) {
     return (
-        <div className="w-full h-[100px] fixed z-50 top-0 px-3 bg-[#000000FF] text-white flex items-center justify-between text-lg font-bold">
-            <img src="/images/logo.webp" alt="Logo" className="w-[100px]" />
+        <div
+            className={`w-full fixed z-50 top-[0px] px-8 h-[80px] flex items-center justify-between text-xl ${
+                showBackground && "bg-[#1e2128] shadow-lg text-2xl"
+            }`}
+        >
+            <span className="font-bold">Decks & Dices</span>
 
             <div className="flex items-center gap-6">
-                <a href="#">Games</a>
-                <a href="#">Community</a>
-                <a href="#">Events</a>
-                <a href="#">About</a>
+                <a href="#" className="hover:underline">
+                    Games
+                </a>
+                <a href="#" className="hover:underline">
+                    Community
+                </a>
+                <a href="#" className="hover:underline">
+                    Events
+                </a>
+                <a href="#" className="hover:underline">
+                    About
+                </a>
             </div>
 
             <div className="flex items-center gap-4">
-                <span>Shop</span>
-                <span>Log in</span>
+                <a href="#" className="hover:underline">
+                    Shop
+                </a>
+                <a href="#" className="hover:underline">
+                    Log in
+                </a>
             </div>
         </div>
     );
