@@ -1,6 +1,10 @@
 services:
     app:
-        build: ./docker/php
+        build:
+            context: ./docker/php
+            args:
+                UID: ${UID}
+                GID: ${GID}
         container_name: app
         restart: unless-stopped
         volumes:

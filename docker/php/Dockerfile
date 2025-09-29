@@ -18,16 +18,20 @@ RUN apt-get update && apt-get install -y \
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-USER www-data
+# Add user matching host UID/GID (passed at build time)
+ARG UID=1000
+ARG GID=1000
+RUN addgroup --gid $GID devgroup \
+    && adduser --disabled-password --gecos "" --uid $UID --gid $GID devuser
+
+# Switch to that user
+USER devuser
 
 # Set working directory
 WORKDIR /var/www/html
 
-# Copy application files
+# Copy application files (optional for prod, in dev you mount)
 COPY . .
 
-# Expose PHP-FPM port
 EXPOSE 9000
-
-# Start PHP-FPM
 CMD ["php-fpm"]

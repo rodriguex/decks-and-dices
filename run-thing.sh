@@ -1,1 +1,1 @@
-docker exec -it app composer run dev
+docker compose up -d && docker exec -it app composer run dev
