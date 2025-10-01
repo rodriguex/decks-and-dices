@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    @apply bg-[#171A1FFF] text-white;
+}
+
 .nice-font {
     font-family: "Bungee Spice", sans-serif;
     font-weight: 400;

@@ -30,7 +30,7 @@ export default function Home() {
     return (
         <div
             ref={parentDivRef}
-            className="w-full flex flex-col bg-[#171A1FFF] text-white"
+            className="w-full flex flex-col"
             onScrollCapture={(event) => handleScroll(event)}
         >
             <Banner />
